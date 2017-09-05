@@ -1,3 +1,7 @@
+import { expect } from 'chai';
+import Node from '../scripts/Node'
+import List from '../scripts/LinkedList'
+
 describe('LINKED LIST', () => {
   let list;
 

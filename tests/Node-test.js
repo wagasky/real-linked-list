@@ -1,6 +1,5 @@
 import { expect } from 'chai';
-import Node from '../Node'
-import List from '../LinkedList.js'
+import Node from '../scripts/Node'
 
 describe('NODE', () => {
   let node;
