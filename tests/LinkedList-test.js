@@ -18,24 +18,24 @@ describe('LINKED LIST', () => {
   });
 
   describe('PUSH', () => {
-    it('should allow push of a single element to a list', () => {
+    it.skip('should allow push of a single element to a list', () => {
       list.push('pizza');
       expect(list.head.data).to.eq('pizza');
     });
 
-    it('should increment the length of the list', () => {
+    it.skip('should increment the length of the list', () => {
       list.push('pizza');
       expect(list.length).to.eq(1);
     });
 
-    it('should increment the length count', () => {
+    it.skip('should increment the length count', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('mushroom');
       expect(list.length).to.eq(3);
     });
 
-    it('should assign the head to the first element pushed', () => {
+    it.skip('should assign the head to the first element pushed', () => {
       expect(list.head).to.eq(null);
 
       list.push('pizza');
@@ -45,7 +45,7 @@ describe('LINKED LIST', () => {
       expect(list.head.data).to.eq('pizza');
     });
 
-    it('should attach the second element to the first element', () => {
+    it.skip('should attach the second element to the first element', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('calzone');
@@ -54,7 +54,7 @@ describe('LINKED LIST', () => {
       expect(list.head.next.next.data).to.eq('calzone');
     });
 
-    it('should attach nexts in sequential order', () => {
+    it.skip('should attach nexts in sequential order', () => {
       list.push('pizza');
       list.push('stromboli');
       list.push('mushroom');
@@ -67,17 +67,17 @@ describe('LINKED LIST', () => {
   });
 
   describe('POP', () => {
-    it('should return null if nothing in list', () => {
+    it.skip('should return null if nothing in list', () => {
       expect(list.length).to.eq(0);
       expect(list.pop()).to.eq(null);
     });
 
-    it('should not decrement the length if there are no nodes', () => {
+    it.skip('should not decrement the length if there are no nodes', () => {
       list.pop()
       expect(list.length).to.eq(0);
     });
 
-    it('should change the length', () => {
+    it.skip('should change the length', () => {
       list.push('hello');
 
       expect(list.length).to.eq(1)
@@ -87,21 +87,21 @@ describe('LINKED LIST', () => {
       expect(list.length).to.eq(0);
     });
 
-    it('should set the list head to null', () => {
+    it.skip('should set the list head to null', () => {
       list.push('hello');
       let result = list.pop();
 
       expect(list.head).to.eq(null);
     });
 
-    it('should return the last element', () => {
+    it.skip('should return the last element', () => {
       list.push('hello');
       const result = list.pop();
 
       expect(result.data).to.eq('hello');
     });
 
-    it('should return the last element from the list', () => {
+    it.skip('should return the last element from the list', () => {
       list.push("hello");
       list.push("new");
       list.push("world");
@@ -111,7 +111,7 @@ describe('LINKED LIST', () => {
       expect(output.data).to.eq('today');
     });
 
-    it('should remove the last element from the list', () => {
+    it.skip('should remove the last element from the list', () => {
         list.push("hello");
         list.push("world");
         list.push("today");
@@ -133,7 +133,7 @@ describe('LINKED LIST', () => {
   });
 
   describe('UNSHIFT', () => {
-    it('should add items to front of list / head', () => {
+    it.skip('should add items to front of list / head', () => {
       list.unshift('pizza');
 
       expect(list.length).to.equal(1)
@@ -147,7 +147,7 @@ describe('LINKED LIST', () => {
   })
 
   describe('SHIFT', () => {
-    it('should remove items from the front of list / head', () => {
+    it.skip('should remove items from the front of list / head', () => {
       let result = list.shift();
 
       // return null if list empty
@@ -180,7 +180,7 @@ describe('LINKED LIST', () => {
       list.push('world');
     });
 
-    it('should return the node if it is found', () => {
+    it.skip('should return the node if it is found', () => {
       const result = list.find('hello');
 
       expect(result.data).to.eq('hello');
