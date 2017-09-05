@@ -17,6 +17,47 @@ describe('LINKED LIST', () => {
     expect(list.head).to.eq(null);
   });
 
+  describe('UNSHIFT', () => {
+    it.skip('should add items to front of list / head', () => {
+      list.unshift('pizza');
+
+      expect(list.length).to.equal(1)
+      expect(list.head.data).to.equal('pizza')
+
+      list.unshift('hamburger');
+      expect(list.length).to.equal(2)
+      expect(list.head.data).to.equal('hamburger')
+      expect(list.head.next.data).to.equal('pizza')
+    })
+  })
+
+  describe('SHIFT', () => {
+    it.skip('should remove items from the front of list / head', () => {
+      let result = list.shift();
+
+      // return null if list empty
+      expect(result).to.equal(null);
+
+      list.unshift('hamburger');
+      list.unshift('duck');
+
+      expect(list.length).to.equal(2)
+      expect(list.head.data).to.equal('duck')
+
+      // multiple items in list
+      result = list.shift();
+
+      expect(result.data).to.equal('duck')
+      expect(list.head.data).to.equal('hamburger')
+
+      // one item in list
+      result = list.shift();
+
+      expect(result.data).to.equal('hamburger')
+      expect(list.head).to.equal(null)
+    })
+  })
+
   describe('PUSH', () => {
     it.skip('should allow push of a single element to a list', () => {
       list.push('pizza');
@@ -131,47 +172,6 @@ describe('LINKED LIST', () => {
         expect(list.length).to.eq(0);
       });
   });
-
-  describe('UNSHIFT', () => {
-    it.skip('should add items to front of list / head', () => {
-      list.unshift('pizza');
-
-      expect(list.length).to.equal(1)
-      expect(list.head.data).to.equal('pizza')
-
-      list.unshift('hamburger');
-      expect(list.length).to.equal(2)
-      expect(list.head.data).to.equal('hamburger')
-      expect(list.head.next.data).to.equal('pizza')
-    })
-  })
-
-  describe('SHIFT', () => {
-    it.skip('should remove items from the front of list / head', () => {
-      let result = list.shift();
-
-      // return null if list empty
-      expect(result).to.equal(null);
-
-      list.unshift('hamburger');
-      list.unshift('duck');
-
-      expect(list.length).to.equal(2)
-      expect(list.head.data).to.equal('duck')
-
-      // multiple items in list
-      result = list.shift();
-
-      expect(result.data).to.equal('duck')
-      expect(list.head.data).to.equal('hamburger')
-
-      // one item in list
-      result = list.shift();
-
-      expect(result.data).to.equal('hamburger')
-      expect(list.head).to.equal(null)
-    })
-  })
 
   describe('FIND', () => {
     beforeEach(() => {
