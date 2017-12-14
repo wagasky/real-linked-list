@@ -1,6 +1,6 @@
 import Node from './Node';
 
-export default class List {
+export default class LinkedList {
   constructor () {
 
   }
