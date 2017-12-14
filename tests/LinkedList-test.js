@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import Node from '../scripts/Node'
-import List from '../scripts/LinkedList'
+import LinkedList from '../scripts/LinkedList'
 
 describe('LINKED LIST', () => {
   let list;
 
   beforeEach(() => {
-    list = new List();
+    list = new LinkedList();
   });
 
   it('should start with zero elements', () => {
@@ -19,91 +19,102 @@ describe('LINKED LIST', () => {
 
   describe('UNSHIFT', () => {
     it.skip('should add items to front of list / head', () => {
-      list.unshift('pizza');
-
+      list.unshift('duck');
       expect(list.length).to.equal(1)
-      expect(list.head.data).to.equal('pizza')
+      expect(list.head.data).to.equal('duck')
 
-      list.unshift('hamburger');
+      list.unshift('goose');
       expect(list.length).to.equal(2)
-      expect(list.head.data).to.equal('hamburger')
-      expect(list.head.next.data).to.equal('pizza')
+      expect(list.head.data).to.equal('goose')
+      expect(list.head.next.data).to.equal('duck')
     })
   })
 
   describe('SHIFT', () => {
-    it.skip('should remove items from the front of list / head', () => {
+    it.skip('should return null if nothing in the list', () => {
       let result = list.shift();
 
-      // return null if list empty
-      expect(result).to.equal(null);
+      expect(result).to.equal(null)
+    })
 
-      list.unshift('hamburger');
+    it.skip('should return the first item in the list', () => {
       list.unshift('duck');
 
-      expect(list.length).to.equal(2)
+      expect(list.head.data).to.equal('duck');
+
+      let result = list.shift();
+
+      expect(result.data).to.equal('duck');
+    })
+
+    it.skip('should remove items from the front of list / head', () => {
+
+      list.unshift('duck');
+      list.unshift('goose');
+      expect(list.head.data).to.equal('goose');
+      expect(list.head.next.data).to.equal('duck');
+
+      // remove goose from list
+      result = list.shift();
+      expect(result.data).to.equal('goose')
+
+      // duck should now be back at the start of the list
       expect(list.head.data).to.equal('duck')
 
-      // multiple items in list
+      // remove duck from list
       result = list.shift();
 
       expect(result.data).to.equal('duck')
-      expect(list.head.data).to.equal('hamburger')
 
-      // one item in list
-      result = list.shift();
-
-      expect(result.data).to.equal('hamburger')
+      // no more items in our list
       expect(list.head).to.equal(null)
     })
   })
 
   describe('PUSH', () => {
-    it.skip('should allow push of a single element to a list', () => {
-      list.push('pizza');
-      expect(list.head.data).to.eq('pizza');
+    it.skip('should push a single element to a list', () => {
+      list.push('duck');
+      expect(list.head.data).to.eq('duck');
     });
 
     it.skip('should increment the length of the list', () => {
-      list.push('pizza');
+      list.push('duck');
       expect(list.length).to.eq(1);
     });
 
     it.skip('should increment the length count', () => {
-      list.push('pizza');
-      list.push('stromboli');
-      list.push('mushroom');
+      list.push('duck');
+      list.push('goose');
+      list.push('swan');
       expect(list.length).to.eq(3);
     });
 
     it.skip('should assign the head to the first element pushed', () => {
       expect(list.head).to.eq(null);
 
-      list.push('pizza');
-      expect(list.head.data).to.eq('pizza');
+      list.push('duck');
+      expect(list.head.data).to.eq('duck');
 
-      list.push('stromboli');
-      expect(list.head.data).to.eq('pizza');
+      list.push('goose');
+      expect(list.head.data).to.eq('duck');
     });
 
     it.skip('should attach the second element to the first element', () => {
-      list.push('pizza');
-      list.push('stromboli');
-      list.push('calzone');
-      expect(list.head.data).to.eq('pizza');
-      expect(list.head.next.data).to.eq('stromboli');
-      expect(list.head.next.next.data).to.eq('calzone');
+      list.push('duck');
+      list.push('swan');
+      expect(list.head.data).to.eq('duck');
+      expect(list.head.next.data).to.eq('swan');
     });
 
     it.skip('should attach nexts in sequential order', () => {
-      list.push('pizza');
-      list.push('stromboli');
-      list.push('mushroom');
-      list.push('peanutbutter');
-      expect(list.head.data).to.eq('pizza');
-      expect(list.head.next.data).to.eq('stromboli');
-      expect(list.head.next.next.data).to.eq('mushroom');
-      expect(list.head.next.next.next.data).to.eq('peanutbutter');
+      list.push('duck');
+      list.push('goose');
+      list.push('swan');
+      list.push('southern screamer');
+      expect(list.head.data).to.eq('duck');
+      expect(list.head.next.data).to.eq('goose');
+      expect(list.head.next.next.data).to.eq('swan');
+      expect(list.head.next.next.next.data).to.eq('southern screamer');
     });
   });
 
@@ -119,7 +130,7 @@ describe('LINKED LIST', () => {
     });
 
     it.skip('should change the length', () => {
-      list.push('hello');
+      list.push('duck');
 
       expect(list.length).to.eq(1)
 
@@ -129,45 +140,45 @@ describe('LINKED LIST', () => {
     });
 
     it.skip('should set the list head to null', () => {
-      list.push('hello');
+      list.push('duck');
       let result = list.pop();
 
       expect(list.head).to.eq(null);
     });
 
     it.skip('should return the last element', () => {
-      list.push('hello');
+      list.push('duck');
       const result = list.pop();
 
-      expect(result.data).to.eq('hello');
+      expect(result.data).to.eq('duck');
     });
 
     it.skip('should return the last element from the list', () => {
-      list.push("hello");
-      list.push("new");
-      list.push("world");
-      list.push("today");
+      list.push("duck");
+      list.push("goose");
+      list.push("swan");
+      list.push("southern screamer");
 
       const output = list.pop();
-      expect(output.data).to.eq('today');
+      expect(output.data).to.eq('southern screamer');
     });
 
     it.skip('should remove the last element from the list', () => {
-        list.push("hello");
-        list.push("world");
-        list.push("today");
+        list.push("duck");
+        list.push("goose");
+        list.push("swan");
 
         const output = list.pop();
-        expect(output.data).to.eq('today');
+        expect(output.data).to.eq('swan');
         expect(list.length).to.eq(2);
 
         const output2 = list.pop();
-        expect(output2.data).to.eq('world');
+        expect(output2.data).to.eq('goose');
         expect(output2.next).to.eq(null);
         expect(list.length).to.eq(1);
 
         const output3 = list.pop();
-        expect(output3.data).to.eq('hello');
+        expect(output3.data).to.eq('duck');
         expect(output3.next).to.eq(null);
         expect(list.length).to.eq(0);
       });
